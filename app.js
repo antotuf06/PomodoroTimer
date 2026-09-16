@@ -4,7 +4,7 @@ const reset = document.getElementById("reset");
 const timer = document.getElementById("timer");
 
 
-let timeLeft = 3; // 25 minutes in seconds
+let timeLeft = 25 * 60; // 25 minutes in seconds
 let interval;
 
 const updateTimerDisplay = () => {
