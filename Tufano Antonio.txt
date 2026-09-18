@@ -1,0 +1,38 @@
+Feedback Progetto di Programmazione ad Oggetti
+Studente: Tufano Antonio
+Valutazione del progetto:
+Molto buono
+
+Filtraggio utilizza dynamic_cast.
+
+Vincoli obbligatori
++ Soddisfatti
+
+
+Orientamento ad oggetti
++ Rispetto di incapsulamento e information hiding
++ Uso corretto di ereditarietà e composizione
++ Uso corretto e approfondito del polimorfismo, oltre quanto richeisto dal vincolo 8
+
+
+Funzionalità
++ Ricerca parziale, case-insensitive e in tempo reale
++ Ricerca avanzata e configurabile
++ Scorciatoie da tastiera
++ Altre funzionalità pertinenti
+
+
+GUI
++ Visualizzazione differenziata per tipo di dato
++ Corretta gestione del ridimensionamento
++ Utilizzo di icone e stili grafici
++ Utilizzo pertinente di immagini o altri elementi multimediali
++ Vengono considerati principi di usabilità
+
+
+Relazione
++ Adeguata
+
+
+Suggerimenti non collegati alla valutazione
+Nessuno.

@@ -2,7 +2,7 @@ const start = document.getElementById("start");
 const stop = document.getElementById("stop");
 const reset = document.getElementById("reset");
 const timer = document.getElementById("timer");
-
+const bellSound = document.getElementById("alarm-bell");
 
 let timeLeft = 25 * 60; // 25 minutes in seconds
 let interval;
@@ -20,7 +20,9 @@ const startTimer = () => {
         if(timeLeft == 0)                //if the timer reaches 0, stop the timer, alert the user and ask if they want to start a break or a new pomodoro
         {
             clearInterval(interval);
+            bellSound.play();
             if(confirm("Time's up! Do you want to start a 5-minute break?")) {
+                bellSound.pause();
                 timeLeft = 5 * 60;
                 startTimer();
             }

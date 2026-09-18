@@ -1,15 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Fraunces:wght@400;600&family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;700&family=Quicksand:wght@400;700&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: "Poppins";
+    font-family: "Google sans text", sans-serif;
 }
 body {
     min-height: 100vh;
-    background:#ca74cf;
+    background: #F4EFEA;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center
+}
+.header {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  height: 80px;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  padding: 20px;
+  background-color: #512D24;
+  border-bottom: 3px solid rgba(105, 98, 98, 0.429);
+  border-radius: 0 0 15px 15px;
+  color: #F4F1EA;
+}
+
+#title{
+    font-family: 'Poppins';
+    font-size: 60px;
+    position: absolute;
 }
 .container {
     display: flex;
@@ -17,51 +41,52 @@ body {
     align-items: center;
     justify-content:center;
     gap: 2em;
-    color: white;
-    background-color: rgba(255, 255, 255, 0.2);
+    color: #F4F1EA;
+    background-color: #a8886f;
     border-radius: 2em;
+    border: 3px solid rgba(103, 79, 66, 0.7);
     padding: 4em 3em;
+    position: relative;
 }
-.title{
-    font-size: 3em;
-}
-hr{
-    width: 100%;
-    background-color: white;
-    height: 5px;
-    border-radius: 1em;
-    border: none;
-}
-.timer {
-    font-size: 10em;
-    font-weight: 700;
 
+
+
+#timer{
+    font-size: 160px;
+    font-weight: 800;
+    color: #F4F1EA;
 }
+
 .button-wrapper {
     display: flex;
     gap: 1em;
 }
+
 button{
     font-size:2em;
     font-weight: 800;
     letter-spacing: 1px;
     padding: 0.5em 1.5em;
     border-radius: 0.5em;
-    border: none;
-    color: white;
+    border: 2px solid rgba(0, 0, 0, 0.6);
+    color: #F4F1EA;
     cursor: pointer;
     transition: 0.2s ease-in-out;
 
 }
+
 button:hover{
-    transform: translateY(-10px);
+    transform: translateY(-5px);
 }
+
 #start{
-    background-color:#29880b ;
+    background-color:#24411c ;
 }
+
 #stop{
-    background-color: #cc290e;
+    background-color: #893025;
 }
+
 #reset{
-    background-color: #79169e;
+    background-color: #aa7037;
 }

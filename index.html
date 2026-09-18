@@ -7,20 +7,23 @@
     <title>Pomodoro Timer</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="container">
-        <h1 class="title">Pomodoro Timer</h1>
 
-        <hr>
-        <p class="timer" id="timer">25:00</p>
+
+<body>
+    <header class="header">
+        <h1 id="title">Pomodoro Timer</h1>
+    </header>
+
+    <main class="container">
+        <div id="timer">25:00</div>
         <div class="button-wrapper">
             <button id="start">Start</button>
             <button id="stop">Stop</button>
             <button id="reset">Reset</button>
         </div>
-    </div>
+    </main>
 
-
+    <audio id="alarm-bell" src="alarm-bell.mp3" preload="auto"></audio>
     <script src="app.js"></script>
 </body>
 </html>
