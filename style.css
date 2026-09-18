@@ -8,7 +8,7 @@
 }
 body {
     min-height: 100vh;
-    background: #F4EFEA;
+    background: #121212;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -24,10 +24,10 @@ body {
   top: 0;
   z-index: 1000;
   padding: 20px;
-  background-color: #512D24;
+  background-color: #242424;
   border-bottom: 3px solid rgba(105, 98, 98, 0.429);
   border-radius: 0 0 15px 15px;
-  color: #F4F1EA;
+  color: #E0E0E0;
 }
 
 #title{
@@ -41,10 +41,10 @@ body {
     align-items: center;
     justify-content:center;
     gap: 2em;
-    color: #F4F1EA;
-    background-color: #a8886f;
+    color: #E0E0E0;
+    background-color: #242424;
     border-radius: 2em;
-    border: 3px solid rgba(103, 79, 66, 0.7);
+    border: 3px solid rgba(119, 113, 110, 0.7);
     padding: 4em 3em;
     position: relative;
 }
@@ -54,7 +54,7 @@ body {
 #timer{
     font-size: 160px;
     font-weight: 800;
-    color: #F4F1EA;
+    color: #E0E0E0;
 }
 
 .button-wrapper {
@@ -68,25 +68,67 @@ button{
     letter-spacing: 1px;
     padding: 0.5em 1.5em;
     border-radius: 0.5em;
-    border: 2px solid rgba(0, 0, 0, 0.6);
-    color: #F4F1EA;
+    border: 2px solid rgba(33, 32, 32, 0.6);
+    color: #E0E0E0;
     cursor: pointer;
     transition: 0.2s ease-in-out;
 
 }
 
-button:hover{
-    transform: translateY(-5px);
+#start{
+    background-color:#2fa254 ;
 }
 
-#start{
-    background-color:#24411c ;
+#start:hover{
+    background-color: #23783e;
+}
+
+#start:active{
+    background-color: #23783e;
+    transform: scale(0.97);
+}
+
+#start:focus{
+    outline: 2px solid #E0E0E0;
+}
+
+#start:disabled{
+    background-color: #1c2c1d;
+    cursor: not-allowed;
+    color: #534f4f;
+    border: 2px solid rgba(33, 32, 32, 0.7);
 }
 
 #stop{
-    background-color: #893025;
+    background-color: #c13f34;
+}
+
+#stop:hover{
+    background-color: #8c2a24;
+}
+
+#stop:active{
+    background-color: #8c2a24;
+    transform: scale(0.97);
+}
+
+#stop:focus{
+    outline: 2px solid #E0E0E0;
 }
 
 #reset{
-    background-color: #aa7037;
+    background-color: #4d4a4a;
+}
+
+#reset:hover{
+    background-color: #3a3a3a;
+}
+
+#reset:active{
+    background-color: #3a3a3a;
+    transform: scale(0.97);
+}
+
+#reset:focus{
+    outline: 2px solid #E0E0E0;
 }
