@@ -1,4 +1,4 @@
-# Pomodoro Timer Website
+# Pomo d'Oro
 
 A minimalist, web-based Pomodoro timer built entirely in HTML, CSS and JS. The project is still in progress and will get modified and improved over time, i have many features in mind that i want to add!
 

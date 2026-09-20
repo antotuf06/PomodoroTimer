@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Fraunces:wght@400;600&family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;700&family=Quicksand:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Fraunces:ital,wght@0,400;0,600;1,400;1,600&family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;700&family=Quicksand:wght@400;700&display=swap');
 
 * {
     box-sizing: border-box;
@@ -18,22 +18,57 @@ body {
   display: flex;
   align-items: center;
   position: absolute;
-  height: 80px;
+  height: 96px;
   width: 100%;
   left: 0;
   top: 0;
   z-index: 1000;
-  padding: 20px;
+  padding: 12px 24px;
   background-color: #242424;
   border-bottom: 3px solid rgba(105, 98, 98, 0.429);
   border-radius: 0 0 15px 15px;
   color: #E0E0E0;
 }
 
-#title{
-    font-family: 'Poppins';
-    font-size: 60px;
-    position: absolute;
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.brand-mark {
+    flex-shrink: 0;
+    display: block;
+}
+
+.brand-name {
+    font-family: Fraunces, Lora, Georgia, serif;
+    font-size: 40px;
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.brand-apo {
+    color: #d4b45a;
+}
+
+@media (max-width: 480px) {
+    .header {
+        height: 84px;
+        padding: 10px 16px;
+    }
+
+    .brand-name {
+        font-size: 28px;
+    }
+
+    .brand-mark {
+        width: 46px;
+        height: 46px;
+    }
 }
 .container {
     display: flex;
