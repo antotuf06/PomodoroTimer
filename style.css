@@ -92,7 +92,12 @@ body {
     color: #E0E0E0;
 }
 
-.button-wrapper {
+.main-button-wrapper {
+    display: flex;
+    gap: 1em;
+}
+
+.break-button-wrapper {
     display: flex;
     gap: 1em;
 }
@@ -110,45 +115,36 @@ button{
 
 }
 
-#start{
+#start-stop{
     background-color:#2fa254 ;
 }
 
-#start:hover{
+#start-stop:hover{
     background-color: #23783e;
 }
 
-#start:active{
+#start-stop:active{
     background-color: #23783e;
     transform: scale(0.97);
 }
 
-#start:focus{
+#start-stop:focus{
     outline: 2px solid #E0E0E0;
 }
 
-#start:disabled{
+#start-stop:disabled{
     background-color: #1c2c1d;
     cursor: not-allowed;
     color: #534f4f;
     border: 2px solid rgba(33, 32, 32, 0.7);
 }
 
-#stop{
-    background-color: #c13f34;
+#start-stop.active-pause {
+    background-color: #8a1f1f;
 }
 
-#stop:hover{
-    background-color: #8c2a24;
-}
-
-#stop:active{
-    background-color: #8c2a24;
-    transform: scale(0.97);
-}
-
-#stop:focus{
-    outline: 2px solid #E0E0E0;
+#start-stop.active-pause:hover {
+    background-color: #5c1414;
 }
 
 #reset{
