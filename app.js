@@ -9,8 +9,8 @@ let timeLeft = 25 * 60; // 25 minutes in seconds
 let interval;
 let isRunning = false;
 let breakTime = 5 * 60; // 5 minutes in seconds
-let longBreakTime = 10 * 60; // 15 minutes in seconds
-let breakRunning = false;
+let longBreakTime = 10 * 60; // 10 minutes in seconds
+let currentMode = "pomodoro"; // can be "pomodoro", "break", or "longBreak"
 let breakInterval;
 
 const updateTimerDisplay = () => {
@@ -20,9 +20,9 @@ const updateTimerDisplay = () => {
 }
 
 const updateStartButton = () => {
-    startStopBtn.innerHTML = isRunning ? "Pause" : "Start"; //change the text of the start button to "Pause" when the timer is running and "Start" when it is not
+    startStopBtn.innerHTML = isRunning? "Pause" : "Start"; //change the text of the start button to "Pause" when the timer is running and "Start" when it is not
 
-    if (isRunning || breakRunning) {                                //add a class to the start button when the timer is running to change its color
+    if (isRunning) {                                //add a class to the start button when the timer is running to change its color
         startStopBtn.classList.add("active-pause");
     } else {
         startStopBtn.classList.remove("active-pause");
@@ -30,7 +30,7 @@ const updateStartButton = () => {
 }
 
 const toggleTimer = () => {
-    if (isRunning || breakRunning) {
+    if (isRunning) {
         stopTimer();
     } else {
         startTimer();
@@ -40,52 +40,72 @@ const toggleTimer = () => {
 }
 
 const startTimer = () => {
-    if(isRunning || breakRunning) return; //if the timer is already running, do nothing
+    if(isRunning) return; 
     
     isRunning = true;
-    interval = setInterval(() => {      //every second, decrease the time left and update the display
-        updateTimerDisplay();
-        timeLeft--;
+    updateStartButton(); // Aggiorna graficamente il bottone
 
-        if(timeLeft == 0)                //if the timer reaches 0, stop the timer, alert the user and ask if they want to start a break or a new pomodoro
-        {
-            isRunning = false;
+    interval = setInterval(() => {      
+        timeLeft--;
+        updateTimerDisplay();
+
+        if(timeLeft == 0)  {              
             clearInterval(interval);
             bellSound.play();
-            if(confirm("Time's up! Do you want to start a 5-minute break?")) {
-                bellSound.pause();
-                timeLeft = breakTime;
-                startTimer();
-            }
-            else {
-                timeLeft = 25 * 60;
-            }
-            updateTimerDisplay();
+            isRunning = false;
+            updateStartButton(); 
             
+            setTimeout(() => {
+                // Legge la modalità attuale per decidere la prossima azione
+                if(currentMode === "pomodoro" && confirm("Time's up! Do you want to start a 5-minute break?")) {
+                    bellSound.pause();
+                    bellSound.currentTime = 0;
+                    
+                    currentMode = "break"; // Cambia modalità
+                    timeLeft = breakTime;
+                    
+                    updateTimerDisplay();
+                    startTimer();
+                }
+                else if((currentMode === "break" || currentMode === "longBreak") && confirm("Break's over! Do you want to start a new pomodoro?")) {
+                    bellSound.pause();
+                    bellSound.currentTime = 0;
+                    
+                    currentMode = "pomodoro"; // Torna alla modalità lavoro
+                    timeLeft = 25 * 60;
+                    
+                    updateTimerDisplay();
+                    startTimer();
+                }
+                else {
+                    // Fallback
+                    bellSound.pause();
+                    bellSound.currentTime = 0;
+                    currentMode = "pomodoro";
+                    timeLeft = 25 * 60; 
+                    updateTimerDisplay();
+                }
+            }, 50);
         }
-    }, 1000)
+    }, 1000);
 }
 
 const stopTimer = () => {
+    clearInterval(interval);
+    updateStartButton();
     isRunning = false;
-    breakRunning = false;
-    startStopBtn.disabled = false; //enable the start button when the timer is stopped
     breakBtn.disabled = false; //enable the break button when the timer is stopped
     longBreakBtn.disabled = false; //enable the long break button when the timer is stopped
-    clearInterval(interval);
-    clearInterval(breakInterval);
     alert("Timer stopped!");
 
 }
 
 const resetTimer = () => {
-    isRunning = false;
-    breakRunning = false;
-    startStopBtn.disabled = false; //enable the start button when the timer is reset
     clearInterval(interval);
-    clearInterval(breakInterval);
+    isRunning = false;
     alert("Timer reset!");
     timeLeft = 25 * 60;
+    updateStartButton();
     updateTimerDisplay();
 }
 
@@ -104,12 +124,22 @@ document.addEventListener('keydown', (event) => {  //pressing spacebar will star
 });
 
 startStopBtn.addEventListener("click", toggleTimer);
-resetBtn.addEventListener("click", resetTimer);
+
+resetBtn.addEventListener("click", () => {
+    resetTimer();
+    currentMode = "pomodoro"; //sets the mode to pomodoro when the timer is reset
+    timeLeft = 25 * 60;
+    updateTimerDisplay();
+});
+
 breakBtn.addEventListener("click", () => {
+    currentMode = "break"; //sets the mode to break when the break button is clicked
     timeLeft = breakTime;
     updateTimerDisplay();
 });
+
 longBreakBtn.addEventListener("click", () => {
+    currentMode = "longBreak"; //sets the mode to long break when the long break button is clicked
     timeLeft = longBreakTime;
     updateTimerDisplay();
 });
