@@ -11,23 +11,18 @@ body {
     background: #121212;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center
 }
 .header {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  height: 96px;
-  width: 100%;
-  left: 0;
-  top: 0;
-  z-index: 1000;
-  padding: 12px 24px;
-  background-color: #242424;
-  border-bottom: 3px solid rgba(105, 98, 98, 0.429);
-  border-radius: 0 0 15px 15px;
-  color: #E0E0E0;
+    display: flex;
+    align-items: center;
+    height: 96px;
+    width: 100%;
+    z-index: 1000;
+    padding: 12px 24px;
+    background-color: #242424;
+    border-bottom: 3px solid rgba(105, 98, 98, 0.429);
+    border-radius: 0 0 15px 15px;
+    color: #E0E0E0;
 }
 
 .brand {
@@ -75,6 +70,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content:center;
+    margin: auto;
     gap: 1em;
     color: #E0E0E0;
     background-color: #242424;
